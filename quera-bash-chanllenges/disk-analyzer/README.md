@@ -1,4 +1,4 @@
-# code challenge: country manager
+# code challenge: disk analyzer
 
 This script solve the challenge of [employee management](https://quera.org/problemset/147642) by implementing requested commands, making a wrapper for df command for disk information.
 

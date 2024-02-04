@@ -1,4 +1,4 @@
-# code challenge: country manager
+# code challenge: employee management
 
 This script solve the challenge of [employee management](https://quera.org/problemset/148125) by implementing requested commands.
 
