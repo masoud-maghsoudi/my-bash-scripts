@@ -17,4 +17,4 @@ sudo chmod 660 /"$dir"
 sudo rm -rif /"$dir"
 sudo userdel -r user1
 sudo userdel -r user2
-groupdel "$grp"
+sudo groupdel "$grp"
