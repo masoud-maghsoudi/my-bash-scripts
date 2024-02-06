@@ -34,7 +34,7 @@ fi
 
 case $1 in
 add)
-    add_task
+    add_task "$@"
     ;;
 list)
     if [[ (! -f $task_file) || ($(wc -l $task_file | cut -d ' ' -f 1) = 0) ]]; then
