@@ -2,13 +2,17 @@
 
 task_file="task.txt"
 
-task_list() {
+add_task() {
+    echo "add_task"
+}
+
+list_task() {
     line_count=1
     while read -r line; do
         if [[ $(echo "$line" | cut -d ' ' -f 1) = "L" ]]; then
-            echo "$line_count ${line/"L"/"*"}"
+            echo "$line_count ${line/"L"/"*    "}"
         elif [[ $(echo "$line" | cut -d ' ' -f 1) = "M" ]]; then
-            echo "$line_count ${line/"M"/"***"}"
+            echo "$line_count ${line/"M"/"***  "}"
         else
             echo "$line_count ${line/"H"/"*****"}"
         fi
@@ -30,17 +34,18 @@ fi
 
 case $1 in
 add)
-    echo "add"
+    add_task
     ;;
 list)
-    echo "list"
     if [[ (! -f $task_file) || ($(wc -l $task_file | cut -d ' ' -f 1) = 0) ]]; then
         echo "No tasks found..."
     else
-        task_list
+        list_task
     fi
     ;;
 done)
-    echo "done"
+    word_count=$(sed -n "$2"p $task_file | wc -w)
+    echo "Completed task $2: $(sed -n "$2"p $task_file | cut -d ' ' -f 2-"$word_count")"
+    sed -i "$2"d $task_file
     ;;
 esac
